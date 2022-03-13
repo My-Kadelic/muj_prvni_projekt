@@ -20,10 +20,10 @@ else:
     print(login, "is unregistered user, terminating the program..")
     quit()
 
-vyber= (1,2,3)
+vyber= ("1","2","3")
 while True:
     vyber_textu = input("Enter a number btw. 1 and 3 to select: ")
-    if int(vyber_textu) not in vyber:
+    if vyber_textu not in vyber:
         print("Incorrect number. Try again number btw. 1 and 3.")
     else:
         break
@@ -40,6 +40,7 @@ lowercase_slova = []
 ciselne_stringy = []
 
 pocet_slov += len(list(list_textu[int(vyber_textu) -1].split()))
+
 print("There are", pocet_slov, "words in the text.")
 
 for slovo in list(list_textu[int(vyber_textu) -1].split()):
