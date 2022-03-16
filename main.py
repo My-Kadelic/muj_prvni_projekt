@@ -30,6 +30,17 @@ while True:
 
 
 list_textu = list(TEXTS)
+vybrany_text = list(list_textu[int(vyber_textu) -1].split())
+
+cista_slova = []
+
+for slovo in vybrany_text:
+    ciste_slovo = slovo.strip(",.!?")
+    cista_slova.append(ciste_slovo)
+
+
+list_cistych_slov = list(filter(None, cista_slova))
+
 
 print(oddelovac)
 
@@ -39,11 +50,11 @@ uppercase_slova = []
 lowercase_slova = []
 ciselne_stringy = []
 
-pocet_slov += len(list(list_textu[int(vyber_textu) -1].split()))
+pocet_slov += len(list(list_cistych_slov ))
 
 print("There are", pocet_slov, "words in the text.")
 
-for slovo in list(list_textu[int(vyber_textu) -1].split()):
+for slovo in list(list_cistych_slov):
     if slovo.istitle():
         title_slova.append(slovo)
     elif slovo.isupper():
@@ -66,13 +77,13 @@ print(oddelovac)
 print("LEN", "|", "occurencies", "|", "NR.")
 print(oddelovac)
 
-konverze_textu = list(list_textu[int(vyber_textu) -1].split())
+konverze_textu = list(list_cistych_slov )
 pouze_slova = []
 for slovo in konverze_textu:
-    ciste_slovo = slovo.strip(",?.!").lower()
+    ciste_slovo = slovo.lower()
     pouze_slova.append(len(ciste_slovo))
 
 counts = Counter(pouze_slova)
 
 for key in sorted(counts):
-    print("%s: %s" % (key, counts[key]*"*"),"|", counts[key])
+    print("%2s| %s" % (key, counts[key]*"*"), "|", counts[key])
